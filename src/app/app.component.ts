@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isCollapsed = false;
+  dark = false;
+  toggleDark(): void{
+    this.dark=!this.dark;
+  }
 }
