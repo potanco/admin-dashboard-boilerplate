@@ -1,24 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Component, Output,EventEmitter,OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators,ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { Router} from "@angular/router"
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
+  constructor(private data: DataService,private fb : FormBuilder, private router:Router){}
 
   validateForm!: FormGroup;
+  isLoggedIn=false;
 
   submitForm(): void {
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
+    this.data.changeLoginStatus(true)
+    this.router.navigate(['welcome'])
   }
-
-  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -26,6 +30,7 @@ export class LoginComponent implements OnInit {
       password: [null, [Validators.required]],
       remember: [true]
     });
+
   }
 
 }

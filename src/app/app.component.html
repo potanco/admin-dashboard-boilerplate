@@ -1,18 +1,17 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
+  <nz-sider class="menu-sidebar" [style.display]="displaySidebar ? 'block' : 'none'">
             nzCollapsible
-            nzWidth="256px"
+            nzWidth="356px"
             nzBreakpoint="md"
             [(nzCollapsed)]="isCollapsed"
             [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://potan.co" target="_blank">
-        <h1>Potan Dashboard</h1>
+        <h1>Potan</h1>
       </a>
     </div>
-    <button (click)="toggleDark()">switch theme</button>
     <ul nz-menu [nzTheme]="dark ? 'dark' : 'light'" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <!-- <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard"> -->
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/welcome">Main</a>
@@ -21,17 +20,15 @@
             <a>Users</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
+            <a>Settings</a>
           </li>
         </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+      <!-- </li> -->
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
+            <a>Notifications</a>
           </li>
         </ul>
-      </li>
     </ul>
   </nz-sider>
   <nz-layout>
@@ -52,3 +49,4 @@
     </nz-content>
   </nz-layout>
 </nz-layout>
+
