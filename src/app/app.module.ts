@@ -31,7 +31,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US},DataService],
+  providers: [{ provide: NZ_I18N, useValue: en_US}, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

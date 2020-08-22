@@ -1,34 +1,32 @@
 <nz-layout class="app-layout">
   <nz-sider class="menu-sidebar" [style.display]="displaySidebar ? 'block' : 'none'">
-            nzCollapsible
-            nzWidth="356px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
+    nzCollapsible
+    nzWidth="356px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://potan.co" target="_blank">
         <h1>Potan</h1>
       </a>
     </div>
     <ul nz-menu [nzTheme]="dark ? 'dark' : 'light'" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <!-- <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard"> -->
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Main</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Users</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Settings</a>
-          </li>
-        </ul>
-      <!-- </li> -->
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Notifications</a>
-          </li>
-        </ul>
+      <ul>
+        <li nz-menu-item nzMatchRouter>
+          <a routerLink="/welcome">Main</a>
+        </li>
+        <li nz-menu-item nzMatchRouter>
+          <a>Users</a>
+        </li>
+        <li nz-menu-item nzMatchRouter>
+          <a>Settings</a>
+        </li>
+      </ul>
+      <ul>
+        <li nz-menu-item nzMatchRouter>
+          <a>Notifications</a>
+        </li>
+      </ul>
     </ul>
   </nz-sider>
   <nz-layout>
@@ -40,6 +38,10 @@
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></i>
         </span>
+        <div class="search-area">
+          <input type="text" id="search-bar" name="search-bar" placeholder="SEARCH"/>
+          <button>Go</button>
+        </div>
       </div>
     </nz-header>
     <nz-content>
