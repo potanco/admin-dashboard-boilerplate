@@ -1,5 +1,5 @@
 import {Component, ViewChild, AfterViewInit, OnInit} from '@angular/core';
-import {DataService} from './services/data.service';
+import {LoginService} from './login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +7,12 @@ import {DataService} from './services/data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
+  title = 'dashboard';
   isCollapsed = false;
   dark = true;
   displaySidebar = false;
 
-  toggleDark(): void {
-    this.dark = !this.dark;
-  }
-
-  constructor(private data: DataService) {
+  constructor(private data: LoginService) {
   }
 
   ngOnInit(): void {

@@ -1,9 +1,8 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar" [style.display]="displaySidebar ? 'block' : 'none'">
+  <nz-sider class="menu-sidebar" [style.display]="displaySidebar || !isCollapsed ? 'block' : 'none'">
     nzCollapsible
     nzWidth="356px"
     nzBreakpoint="md"
-    [(nzCollapsed)]="isCollapsed"
     [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://potan.co" target="_blank">

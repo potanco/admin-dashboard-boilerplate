@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injectable } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IconsProviderModule } from './icons-provider.module';
@@ -13,7 +12,7 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { DataService } from './services/data.service';
+import { LoginService } from './login/login.service';
 
 registerLocaleData(en);
 
@@ -31,7 +30,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US}, DataService],
+  providers: [{ provide: NZ_I18N, useValue: en_US}, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
