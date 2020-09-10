@@ -14,6 +14,7 @@
   z-index: 10;
   min-height: 100vh;
   box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
+  animate:2s;
 }
 
 .header-trigger {
@@ -21,7 +22,7 @@
   padding: 20px 24px;
   font-size: 20px;
   cursor: pointer;
-  transition: all .3s, padding 0s;
+  transition: all .4s, padding 0s;
 }
 
 .search-area {
@@ -29,9 +30,10 @@
   align-items: center;
   height: 3em;
   font-size: 18px;
-  float:right;
-  margin:0.2em;
-  input{
+  float: right;
+  margin: 0.2em;
+
+  input {
     border: 0px;
   }
 }
@@ -47,7 +49,6 @@
   overflow: hidden;
   line-height: 64px;
   background: #001529;
-  transition: all .3s;
 }
 
 .sidebar-logo img {
@@ -62,7 +63,7 @@
   margin: 0 0 0 20px;
   color: #fff;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 24px;
   font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
   vertical-align: middle;
 }

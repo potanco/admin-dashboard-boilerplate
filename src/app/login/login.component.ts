@@ -1,5 +1,5 @@
-import {Component, Output, EventEmitter, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {LoginService} from 'src/app/login/login.service';
 
@@ -10,28 +10,32 @@ import {LoginService} from 'src/app/login/login.service';
 })
 
 export class LoginComponent implements OnInit {
-  constructor(private data: LoginService, private fb: FormBuilder, private router: Router) {
+  constructor(private loginService: LoginService, private fb: FormBuilder, private router: Router) {
   }
 
-  validateForm!: FormGroup;
+  validateForm: FormGroup;
   isLoggedIn = false;
 
   submitForm(): void {
-    for (const i in this.validateForm.controls) {
+    // check login inputs
+    for (const i of Object.keys(this.validateForm.controls)) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
-    this.data.changeLoginStatus(true);
-    this.router.navigate(['welcome']);
+    // login form input valid
+    if (this.validateForm.valid){
+      this.router.navigate(['welcome']);
+      this.loginService.changeLoginStatus(true);
+    }
+
   }
 
   ngOnInit(): void {
+    // define validation criteria
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
+      userName: [null, [Validators.required, Validators.minLength(3)]],
+      password: [null, [Validators.required, Validators.minLength(6)]],
       remember: [true]
     });
-
   }
-
 }

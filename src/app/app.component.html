@@ -1,7 +1,7 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar" [style.display]="displaySidebar || !isCollapsed ? 'block' : 'none'">
+  <nz-sider class="menu-sidebar" [style.display]="isSidebarCollapsed ? 'none' : 'block'">
     nzCollapsible
-    nzWidth="356px"
+    nzWidth="386px"
     nzBreakpoint="md"
     [nzTrigger]="null">
     <div class="sidebar-logo">
@@ -9,7 +9,7 @@
         <h1>Potan</h1>
       </a>
     </div>
-    <ul nz-menu [nzTheme]="dark ? 'dark' : 'light'" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    <ul nz-menu [nzTheme]="darkMode ? 'dark' : 'light'" nzMode="inline">
       <ul>
         <li nz-menu-item nzMatchRouter>
           <a routerLink="/welcome">Main</a>
@@ -31,11 +31,10 @@
   <nz-layout>
     <nz-header>
       <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+        <span class="header-trigger" (click)="isSidebarCollapsed=!isSidebarCollapsed" [style.opacity]="isLoggedIn ? 1 : 0">
             <i class="trigger"
                nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></i>
+               [nzType]="isSidebarCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span>
         <div class="search-area">
           <input type="text" id="search-bar" name="search-bar" placeholder="SEARCH"/>
